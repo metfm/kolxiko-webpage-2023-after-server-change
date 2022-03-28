@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Μετεωρολογικός Σταθμός Νέων Μουδανιών Χαλκιδικής">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Μετεωρολογικός Σταθμός Νέων Μουδανιών Χαλκιδικής</title>
+<link rel="stylesheet" href="index.css">
+<script type=text/javascript>if(screen.width<=800){window.location="https://kairos.moudania.com/mobile.htm"};</script>
+</head>
+<body>
+<div id="navbar">
+<canvas id="canvas_led" width="25" height="25"></canvas>
+<canvas id="canvas_status" width="150" height="25"></canvas>
+<canvas id="canvas_timer" width="30" height="25"></canvas><h2>METEΩΡΟΛΟΓΙΚΟΣ ΣΤΑΘΜΟΣ NEΩΝ ΜΟΥΔΑΝΙΩΝ ΧΑΛΚΙΔΙΚΗΣ</h2>
+</div>
+<div class="organa">
+<div class="gauge">
+<div id="tip_0">
+<canvas id="canvas_temp" class="gaugeSizeStd"></canvas><br>
+<input id="rad_unitsTemp1" type="radio" name="rad_unitsTemp" value="C" checked onclick="gauges.setUnits(this);"><label id="lab_unitsTemp1" for="rad_unitsTemp1">&deg;C</label>
+<input id="rad_unitsTemp2" type="radio" name="rad_unitsTemp" value="F" onclick="gauges.setUnits(this);"><label id="lab_unitsTemp2" for="rad_unitsTemp2">&deg;F</label>
+</div></div>
+<div class="gauge">
+<div id="tip_4">
+<canvas id="canvas_hum" class="gaugeSizeStd"></canvas>
+</div></div>
+<div id="tip_2" class="gauge">
+<canvas id="canvas_rain" class="gaugeSizeStd"></canvas><br>
+<input id="rad_unitsRain1" type="radio" name="rad_unitsRain" value="mm" checked onclick="gauges.setUnits(this);"><label id="lab_unitsRain1" for="rad_unitsRain1">mm</label>
+<input id="rad_unitsRain2" type="radio" name="rad_unitsRain" value="in" onclick="gauges.setUnits(this);"><label id="lab_unitsRain2" for="rad_unitsRain2">Inch</label>
+</div>
+<div id="tip_6" class="gauge">
+<canvas id="canvas_wind" class="gaugeSizeStd"></canvas><br>
+<input id="rad_unitsWind4" type="radio" name="rad_unitsWind" value="km/h" checked onclick="gauges.setUnits(this);"><label id="lab_unitsWind4" for="rad_unitsWind4">km/h</label>
+<input id="rad_unitsWind3" type="radio" name="rad_unitsWind" value="m/s" onclick="gauges.setUnits(this);"><label id="lab_unitsWind3" for="rad_unitsWind3">m/s</label>
+<input id="rad_unitsWind1" type="radio" name="rad_unitsWind" value="mph" onclick="gauges.setUnits(this);"><label id="lab_unitsWind1" for="rad_unitsWind1">mph</label>
+<input id="rad_unitsWind2" type="radio" name="rad_unitsWind" value="kts" onclick="gauges.setUnits(this);"><label id="lab_unitsWind2" for="rad_unitsWind2">knots</label>
+</div><br>
+<div class="gauge">
+<div id="tip_1">
+<canvas id="canvas_dew" class="gaugeSizeStd"></canvas>
+</div>
+<input id="rad_dew1" type="radio" name="rad_dew" value="dew" onclick="gauges.doDew(this);"><label id="lab_dew1" for="rad_dew1">Dew Point</label>
+<input id="rad_dew2" type="radio" name="rad_dew" value="app" checked onclick="gauges.doDew(this);"><label id="lab_dew2" for="rad_dew2">Apparent</label>
+<br>
+<input id="rad_dew3" type="radio" name="rad_dew" value="wnd" onclick="gauges.doDew(this);"><label id="lab_dew3" for="rad_dew3">Wind Chill</label>
+<input id="rad_dew4" type="radio" name="rad_dew" value="hea" onclick="gauges.doDew(this);"><label id="lab_dew4" for="rad_dew4">Heat Index</label>
+</div>
+<div id="tip_5" class="gauge">
+<canvas id="canvas_baro" class="gaugeSizeStd"></canvas><br>
+<input id="rad_unitsPress1" type="radio" name="rad_unitsPress" value="hPa" checked onclick="gauges.setUnits(this);"><label id="lab_unitsPress1" for="rad_unitsPress1">hPa</label>
+<input id="rad_unitsPress2" type="radio" name="rad_unitsPress" value="inHg" onclick="gauges.setUnits(this);"><label id="lab_unitsPress2" for="rad_unitsPress2">inHg</label>
+</div>
+<div id="tip_3" class="gauge">
+<canvas id="canvas_rrate" class="gaugeSizeStd"></canvas>
+</div>
+<div id="tip_7" class="gauge">
+<canvas id="canvas_dir" class="gaugeSizeStd"></canvas>
+</div><br>
+<div id="tip_11" class="gauge">
+<canvas id="canvas_cloud" class="gaugeSizeStd"></canvas><br>
+<input id="rad_unitsCloudBase1" type="radio" name="rad_unitsCloud" value="m" checked onclick="gauges.setUnits(this);"><label id="lab_unitsCloudBase1" for="rad_unitsCloudBase1">m</label>
+<input id="rad_unitsCloudBase2" type="radio" name="rad_unitsCloud" value="ft" onclick="gauges.setUnits(this);"><label id="lab_unitsCloudBase2" for="rad_unitsCloudBase2">ft</label>
+</div>
+<div id="tip_10" class="gauge">
+<canvas id="canvas_rose" class="gaugeSizeStd"></canvas>
+</div></div>
+<div class="menu">
+<a href="today.htm" target="blanc">Στατιστικά σταθμού</a><br>
+<a href="noaa.htm" target="blanc">Aρχεία ΝΟΑΑ</a><br>
+MET. ΣΤΑΘΜΟΙ<br>
+<a href="http://www.dmark.gr/weatherKALL/eden/gauges_ss.php" target="blank">Καλλικράτεια</a><br>
+<a href="http://penteli.meteo.gr/stations/kassandreia/" target="blank">Κασσανδρεία</a><br>
+<a href="https://www.meteology.gr/ormylia/" target="blank">Oρμύλια</a><br>
+<a href="http://www.sithoniaweather.gr/" target="blank">Αγ. Νικόλαος</a><br>
+<a href="http://ormos-panagias.sithoniaweather.gr/pws/" target="blank">Ορμος Παναγιάς</a><br>
+<a href="http://penteli.meteo.gr/stations/marmaras/" target="blank">Νέος Μαρμαράς</a><br>
+<a href="http://aristoteliports.gr/weatherierissos/" target="blank">Ιερισσός</a><br>
+<a href="http://penteli.meteo.gr/stations/stratoni/" target="blank">Στρατώνι</a><br>
+<a href="http://penteli.meteo.gr/stations/simonopetra/" target="blank">Μονή Σίμωνος Πέτρας</a><br>
+<a href="http://penteli.meteo.gr/stations/vatopedi/" target="blank">Μονή Βατοπαιδίου</a><br>
+<a href="http://penteli.meteo.gr/stations/megistilavra/" target="blank">Μονή Μεγίστης Λάυρας</a><br>
+<a href="https://www.meteology.gr/taxiarchis/" target="blank">Ταξιάρχης</a><br>
+<a href="https://www.meteology.gr/galatista/" target="blank">Γαλάτιστα</a><br>
+<a href="http://penteli.meteo.gr/stations/polygyros/" target="blank">Πολύγυρος</a><br>
+<a href="https://app.weathercloud.net/d2166374681#current" target="blank">Παλαιοχωρι</a><br>
+ΣΥΝΔΕΣΜΟΙ<br>
+<a href="https://www.meteo60.fr/satellites/animation-satellite-ir-france.gif" target="blank">Δορυφορική</a><br>
+<a href="https://www.blitzortung.org/Images/image_b_gr.png" target="blank">Ραντάρ</a><br>
+<a href="https://www.metoffice.gov.uk/weather/maps-and-charts/surface-pressure/#?tab=surfacePressureColour&fcTime=1426975200" target="blank">Χ.Επιφανείας</a><br>
+</div>    
+<div class="cams">WEBCAMS
+<div class="tooltip1">N&#941;&#945; &#924;&#959;&#965;&#948;&#945;&#957;&#953;&#940;
+<span class="tooltiptext"><img src='https://kairos.moudania.com/nea-moudania/webcam.jpg?time=' onload='imageRefresh(this, 10000);'  alt="image" ></span>
+</div><br>
+<div class="tooltip1">N&#941;&#945; H&#961;&#940;&#954;&#955;&#949;&#953;&#945;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/neairakleia/?time=' onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#915;&#949;&#961;&#945;&#954;&#953;&#957;&#942;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/gerakini/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">O&#961;&#956;&#973;&#955;&#953;&#945;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/ormylia/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">K&#961;&#965;&#959;&#960;&#951;&#947;&#942;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/kryopigi/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#928;&#949;&#965;&#954;&#959;&#967;&#974;&#961;&#953;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/pefkochori/?time=' onload='imageRefresh(this, 1000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#931;&#943;&#946;&#951;&#961;&#951;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/siviri/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#913;&#947;. &#928;&#945;&#961;&#945;&#963;&#954;&#949;&#965;&#942;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/agiaparaskevi/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#931;&#954;&#953;&#974;&#957;&#951;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/skioni/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#931;&#940;&#961;&#964;&#951;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/sarti/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#931;&#940;&#961;&#964;&#951;-2
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/sarti2/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#931;&#965;&#954;&#953;&#940;
+<span class="tooltiptext"><img src='https://www.camping-melissi.gr/images/melissicam/snap/webcam.jpg?time='   onload='imageRefresh(this, 10000);'  alt="image"  ></span>
+</div><br>
+<div class="tooltip1">&#928;&#945;&#961;&#952;&#949;&#957;&#974;&#957;&#945;&#962;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/parthenonas/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#913;&#947;. &#925;&#953;&#954;&#972;&#955;&#945;&#959;&#962;-2
+<span class="tooltiptext"><img src='http://northmeteo.gr/cam/agios-nikolaos/FI9901EP_00626E6A0440/index.php/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">Πυργαδίκια
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/pyrgadikia/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#924;&#959;&#957;&#942; &#923;&#945;&#973;&#961;&#945;&#962;
+<span class="tooltiptext"><img src='https://penteli.meteo.gr/stations/megistilavra/cam/megisti.jpg?time='   onload='imageRefresh(this, 10000);'  alt="image"></span>
+</div><br>
+<div class="tooltip1">&#913;&#956;&#956;&#959;&#965;&#955;&#953;&#945;&#957;&#942;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/ammouliani/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#913;&#956;&#956;&#959;&#965;&#955;&#953;&#945;&#957;&#942;-2
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/ammouliani2/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#913;&#956;&#956;&#959;&#965;&#955;&#953;&#945;&#957;&#942;-3
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/ammouliani3/?time='   onload='imageRefresh(this, 10000);' alt="image"></span></div><br>
+<div class="tooltip1">&#915;&#945;&#955;&#940;&#964;&#953;&#963;&#964;&#945;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/galatista/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#915;&#945;&#955;&#940;&#964;&#953;&#963;&#964;&#945;-2
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/galatista2/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">A&#961;&#957;&#945;&#943;&#945;
+<span class="tooltiptext"><img src='https://meteohellas-weathercams.gr/cam/arnaia/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">A&#961;&#957;&#945;&#943;&#945;-2
+<span class="tooltiptext"><img src='https://meteohellas-weathercams.gr/cam/arnaiaplateia/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">A&#961;&#957;&#945;&#943;&#945;-3
+<span class="tooltiptext"><img src='https://meteohellas-weathercams.gr/cam/arnaiadim/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">&#914;&#940;&#946;&#948;&#959;&#962;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/vavdos/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+<div class="tooltip1">T&#945;&#958;&#953;&#940;&#961;&#967;&#951;&#962;
+<span class="tooltiptext"><img src='https://www.meteology.gr/cam/cholomontas/?time='   onload='imageRefresh(this, 10000);' alt="image"></span>
+</div><br>
+LIVE!!<br>
+<a href="http://www.livecameras.gr/up/sithonia.php" target="blank">Aγ. Νικόλαος</a><br>
+<a href="https://www.livecameras.gr/up/sithonia3.php" target="blank">Ορμος Παναγιάς</a><br>
+<a href="https://www.skylinewebcams.com/el/webcam/ellada/makedonia/chalkidiki/nea-roda.html" target="blank">N.Pόδα</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiPortoCarrasPanorama" target="blank">N. Μαρμαράς</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiKassandreia" target="blank">Κασσάνδρεια</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiIerissosPort" target="blank">Ιερισσός</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiOuranoupolisPort" target="blank">Ουρανούπολη</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiTrypitiPort" target="blank">Τρυπητή</a><br>
+<a href="https://www.meteocam.gr/ChalkidikiOlympiada" target="blank">Ολυμπιάδα</a><br>
+<a href="https://www.skylinewebcams.com/webcam/ellada/makedonia/chalkidiki/afitos.html" target="blank">Αφυτος</a><br>
+<a href="https://www.skylinewebcams.com/webcam/ellada/mount-athos/karyes/mount-athos.html" target="blank">Aγιον Ορος</a>
+</div>
+<div id="banner">
+<a href="https://www.pasirbeachbar.com/index_el.html" target="blanc"><img src="/images/pazir.png" alt="HTML tutorial" width="250" height="50"></a>
+<a href="https://www.facebook.com/secupa.moudania/" target="blanc"><img src="/images/secupa.png" alt="HTML tutorial" width="250" height="50"></a>
+<a href="https://moudania.com" target="blanc"><img src="/images/moudania.png" alt="HTML tutorial" width="250" height="50"></a>
+<a href="https://shopping-center-8970.business.site/" target="blanc"><img src="/images/zisi.png" alt="HTML tutorial" width="250" height="50"></a>
+</div>
+<div id="yt"><a href="https://www.youtube.com/channel/UCzxyOuGnMaiKYQz1v05WfUQ" target="blanc"><img src="/images/youtube.png" alt="load" width="45" height="45"></a></div><div id="fb"><a href="https://www.facebook.com/neamoudaniaweatherstation" target="blanc"><img src="/images/facebook.png" alt="HTML tutorial" width="35" height="35"></a></div><div id="email"><a href="mailto:hobbyline187@gmail.com" target="blanc"><img src="/images/email.png" alt="load" width="35" height="35"></a></div>
+<script src="scripts/jquery.js"></script>
+<script src="scripts/steelseries_tween.min.js"></script>
+<script src="scripts/language.min.js"></script>
+<script src="scripts/gauges.js"></script>
+<script src="scripts/RGraph.common.core.min.js"></script>
+<script src="scripts/RGraph.rose.min.js"></script>
+</body>
+</html>
